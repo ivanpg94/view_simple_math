@@ -389,10 +389,13 @@ class SimpleMathField extends NumericField implements ContainerFactoryPluginInte
          */
 
         // For Commerce fields.
-        if (in_array($field_type, $this->commercePriceFields)) {
+        if ($field_type === 'commerce_price_default' || $field_type === 'commerce_product_variation') {
           $commerce_field_id = $this->displayHandler->getHandler('field', $field)->options['id'];
-          if ($entity->hasField($commerce_field_id) && !empty($entity->get($commerce_field_id)->getValue())) {
-            $data = $entity->get($commerce_field_id)->first()->toPrice();
+          if ($commerce_field_id === 'list_price__number') {
+            $data = $entity->get('list_price')->getValue()[0]['number'];
+          }
+          if ($commerce_field_id === 'price__number') {
+            $data = $entity->get('price')->getValue()[0]['number'];
           }
         }
       }
