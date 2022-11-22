@@ -1,0 +1,12 @@
+name: Views Simple Math Field
+description: 'Creates a Views field handler that enables you to perform simple math expressions'
+type: module
+package: Views
+core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2022-08-23
+version: '3.0.1'
+project: 'views_simple_math_field'
+datestamp: 1661281211
